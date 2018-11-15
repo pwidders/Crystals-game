@@ -72,13 +72,14 @@ $(document).ready(function() {
 
     // player's 'score === random number = win!
 
-    $(".btn btn-primary").on("click", function() {
+    $(".btn").on("click", function() {
         // The two following conditionals should be checked on every click
         if (scoreTotal === chosenNumber) {
             console.log("You win!")
         // Inform user they won and add a win to their win total
             $('#win-loss-popup').text('You win!');
             $('#wins-number').text(winTotal + 1);
+            reset();
             }
         // payer's score > random number = lose
         else if (scoreTotal > chosenNumber) {
@@ -86,9 +87,19 @@ $(document).ready(function() {
         // Inform user they lost and add loss to toal
             $('#win-loss-popup').text('You lose!');
             $('#losses-number').text(lossTotal + 1);
+            reset();
             }
     })
 
     // game resets with new random number and win/loss gets tallied
-
+    function reset() {
+        chosenNumber = randomNumberFromRange(minNumber, maxNumber);
+        rubyValue = randomNumberFromRange(crystalMin, crystalMax);
+        diamondValue = randomNumberFromRange(crystalMin, crystalMax);
+        yellowValue = randomNumberFromRange(crystalMin, crystalMax);
+        greenValue = randomNumberFromRange(crystalMin, crystalMax);
+        scoreTotal = 0;
+        $('#random-number').html("<b>Your target number is: </b>" + (chosenNumber));
+        $('#current-score').text(scoreTotal);
+    }
 })

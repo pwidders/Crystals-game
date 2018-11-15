@@ -1,6 +1,24 @@
-.container {
+#container {
     background-color: antiquewhite;
     background-size: cover;
 }
+
+#ruby {
+    background-color: red;
+}
+
+#diamond {
+    background-color: azure;
+}
+
+#yellow {
+    background-color: yellow;
+}
+
+#green {
+    background-color: green;
+}
+
+
 
  
