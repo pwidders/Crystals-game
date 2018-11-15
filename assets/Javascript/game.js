@@ -3,21 +3,25 @@ $(document).ready(function() {
     // Your code here.
 
     // Reference DOM elements
-    var _randomNumber = document.getElementById("random-number"); 
+    var _randomNumber = $("#random-number"); 
 
-    var _crystalValueRuby = document.getElementById("ruby");
+    var _crystalValueRuby = $("#ruby");
 
-    var _crystalValueDiamond = document.getElementById("diamond");
+    var _crystalValueDiamond = $("#diamond");
 
-    var _crystalValueYellow = document.getElementById("yellow");
+    var _crystalValueYellow = $("#yellow");
 
-    var _crystalValueGreen = document.getElementById("green");
+    var _crystalValueGreen = $("#green");
 
-    var _scoreBoardBox = document.getElementById("scoreBoard");
+    var _scoreBoardBox = $("#current-score");
 
-    var _totalScore = document.getElementById("total-score");
+    var _youWinOrLose = $("#win-loss-popup");
 
+    var _winsNumber = $("#wins-number");
 
+    var _lossesNumber = $("#losses-number");
+
+    
     //define variables
     var minNumber = 19;
     
@@ -29,77 +33,96 @@ $(document).ready(function() {
     
     var chosenNumber = randomNumberFromRange(minNumber, maxNumber);
 
-    var randomCrystalValue = randomNumberFromRange(crystalMin, crystalMax);
+    var scoreNewGame = 0;
+
+    var totalScoreBank = [];
+
+    var rubyValue = randomNumberFromRange(crystalMin, crystalMax);
+
+    var diamondValue = randomNumberFromRange(crystalMin, crystalMax);
+
+    var yellowValue = randomNumberFromRange(crystalMin, crystalMax);
+
+    var greenValue = randomNumberFromRange(crystalMin, crystalMax);
+
+    var scoreTotal = 0;
 
 
-    // Generate random number between 19-120 when page is loaded. 
-
-    function randomNumberFromRange (min,max)
-    {
+    // Generate random number between 19-120 when page is loaded.
+    //This is a helper function 
+    function randomNumberFromRange (min,max) {
         return Math.floor(Math.random()*(max-min+1)+min);
     }
+        
+        $(_randomNumber).append("<b>Your target number is: </b>" + (chosenNumber));
     
-    $(_randomNumber).append("<b>Your target number is: </b>" + (chosenNumber));
-
     
-    // Create an onclick event that generates random value for each crystal of 1-12 and adds that value to total score
+    // Create an onclick event that generates random value for each crystal of 1-12 and adds that value to users total score
     
         // Ruby
+    $(_crystalValueRuby).val(rubyValue);
+   
     $(_crystalValueRuby).click(function() {
-        function randomNumberFromRange (min,max)
-        {
-        return Math.floor(Math.random()*(max-min+1)+min);
-        } 
-        $(_scoreBoardBox).replaceWith("<h2>" + (randomCrystalValue) + "</h2>");
+        scoreTotal += rubyValue
+        // var previousScore = Number(_scoreBoardBox.text());
+
+        _scoreBoardBox.text(scoreTotal);
+        console.log(Number(_scoreBoardBox));
     })
         
         // Diamond
+    $(_crystalValueDiamond).val(diamondValue);
+   
     $(_crystalValueDiamond).click(function() {
-        function randomNumberFromRange (min,max)
-        {
-        return Math.floor(Math.random()*(max-min+1)+min);
-        } 
-        $(_scoreBoardBox).replaceWith("<h2>" + (randomCrystalValue) + "</h2>");
-    })
+        scoreTotal += diamondValue
+        // previousScore = Number(_scoreBoardBox.text());
+        _scoreBoardBox.text(scoreTotal);
+        console.log(_scoreBoardBox);
+    })   
 
         // Yellow
-    $(_crystalValueYellow).click(function() {
-        function randomNumberFromRange (min,max)
-        {
-         return Math.floor(Math.random()*(max-min+1)+min);
-        } 
-        $(_scoreBoardBox).replaceWith("<h2>" + (randomCrystalValue) + "</h2>");
-    })
+    _crystalValueYellow.val(yellowValue);
+   
+    _crystalValueYellow.click(function() {
+        scoreTotal += yellowValue
+        // previousScore = Number(_scoreBoardBox.text());
+        _scoreBoardBox.text(scoreTotal);
+        console.log(_scoreBoardBox);
+    }) 
 
         // Green
-    $(_crystalValueGreen).click(function() {
-        function randomNumberFromRange (min,max)
-        {
-         return Math.floor(Math.random()*(max-min+1)+min);
-        } 
-        $(_scoreBoardBox).replaceWith("<h2>" + (randomCrystalValue) + "</h2>");
+    _crystalValueGreen.val(greenValue);
+   
+    _crystalValueGreen.click(function() {
+        scoreTotal += greenValue
+        // previousScore = Number(_scoreBoardBox.text());
+        _scoreBoardBox.text(scoreTotal);
+        // console.log(_scoreBoardBox);
+
+
     })
-    
-
-    console.log(_scoreBoardBox);
-    
-        //$("#ruby").click(function(){
-        //    $(_scoreBoardBox).val(crystalValueA);
-        //    $("#scoreBoard").append(crystalValueA);
-        //})
 
     
+    // player's 'score === random number = win!
 
-    console.log(_scoreBoardBox);
-    
-    // Player clicks a crystal containing a random number. That number gets added to player's score.
+    // Sasha's modular way
 
-        //
+    $(".crystal").on("click", function() {
+        console.log("unique id", $(this).attr("id"))
 
-    // player's score === random number = win!
+            // The two following conditionals should be checked on every click
 
-    // payer's score > random number = lose
+
+        if (scoreTotal === chosenNumber) {
+            console.log("You win!")
+        }
+            // payer's score > random number = lose
+        else if (scoreTotal > chosenNumber) {
+            console.log("You lose!")
+        }
+    })
+
+
 
     // game resets with new random number and win/loss gets tallied
- 
-});
+})

@@ -22,26 +22,31 @@
             </p>
         </div>
         
-        <div id= "points">
-            <h3 id= "random-number">
-
-            </h3>
+        <div>
+            <h3 id= "random-number"></h3>
         </div>
         
-        <div id= "wins-losses">
-            <p id= "wins-losses"></p>
+        <div id= "wins-losses-box">
+            <p id= "win-loss-popup"></p>
+            <p id= "wins">Wins: <span id="wins-number">0</span></p>
+            <p id= "losses">Losses: <span id="losses-number">0</span></p>
         </div>
         
-        <button id= "ruby"></button>
-        <button id= "diamond"></button>
-        <button id= "yellow"></button>
-        <button id= "green"></button>
+        <div id= "buttons">
+            <button class="crystal" id= "ruby"></button>
+            <button class="crystal" id= "diamond"></button>
+            <button class="crystal" id= "yellow"></button>
+            <button class="crystal" id= "green"></button>
+        </div>    
 
-        <div id= "total-score"></div>
-        <div id= "scoreBoard"></div>
+        <div>
+            <p><b>Your total score is:</b></p>
+        </div>
+
+        <div id= "random-score">
+            <p id="current-score"></p>
+        </div>
     </div>
-
-
     
 <script type= "text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script type= "text/javascript" src="./assets/Javascript/game.js"></script>   
