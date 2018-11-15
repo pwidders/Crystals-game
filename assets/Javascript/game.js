@@ -2,26 +2,6 @@ $(document).ready(function() {
     console.log("ready!");
     // Your code here.
 
-    // Reference DOM elements
-    var _randomNumber = $("#random-number"); 
-
-    var _crystalValueRuby = $("#ruby");
-
-    var _crystalValueDiamond = $("#diamond");
-
-    var _crystalValueYellow = $("#yellow");
-
-    var _crystalValueGreen = $("#green");
-
-    var _scoreBoardBox = $("#current-score");
-
-    var _youWinOrLose = $("#win-loss-popup");
-
-    var _winsNumber = $("#wins-number");
-
-    var _lossesNumber = $("#losses-number");
-
-    
     //define variables
     var minNumber = 19;
     
@@ -33,10 +13,6 @@ $(document).ready(function() {
     
     var chosenNumber = randomNumberFromRange(minNumber, maxNumber);
 
-    var scoreNewGame = 0;
-
-    var totalScoreBank = [];
-
     var rubyValue = randomNumberFromRange(crystalMin, crystalMax);
 
     var diamondValue = randomNumberFromRange(crystalMin, crystalMax);
@@ -47,79 +23,66 @@ $(document).ready(function() {
 
     var scoreTotal = 0;
 
+    var winTotal = 0;
+
 
     // Generate random number between 19-120 when page is loaded.
     //This is a helper function 
     function randomNumberFromRange (min,max) {
         return Math.floor(Math.random()*(max-min+1)+min);
     }
-        
-        $(_randomNumber).append("<b>Your target number is: </b>" + (chosenNumber));
+         $('#random-number').append("<b>Your target number is: </b>" + (chosenNumber));
     
     
     // Create an onclick event that generates random value for each crystal of 1-12 and adds that value to users total score
     
         // Ruby
-    $(_crystalValueRuby).val(rubyValue);
-   
-    $(_crystalValueRuby).click(function() {
-        scoreTotal += rubyValue
-        // var previousScore = Number(_scoreBoardBox.text());
-
-        _scoreBoardBox.text(scoreTotal);
-        console.log(Number(_scoreBoardBox));
+    $('#ruby').val(rubyValue);
+    $('#ruby').click(function() {
+        scoreTotal += rubyValue;
+        $('#current-score').text(scoreTotal);
+        console.log(scoreTotal);
     })
         
         // Diamond
-    $(_crystalValueDiamond).val(diamondValue);
-   
-    $(_crystalValueDiamond).click(function() {
-        scoreTotal += diamondValue
-        // previousScore = Number(_scoreBoardBox.text());
-        _scoreBoardBox.text(scoreTotal);
-        console.log(_scoreBoardBox);
+    $('#diamond').val(diamondValue);
+    $('#diamond').click(function() {
+        scoreTotal += diamondValue;
+        $('#current-score').text(scoreTotal);
+        console.log(scoreTotal);
     })   
 
         // Yellow
-    _crystalValueYellow.val(yellowValue);
-   
-    _crystalValueYellow.click(function() {
-        scoreTotal += yellowValue
-        // previousScore = Number(_scoreBoardBox.text());
-        _scoreBoardBox.text(scoreTotal);
-        console.log(_scoreBoardBox);
-    }) 
+    $('#yellow').val(yellowValue);
+    $('#yellow').click(function() {
+        scoreTotal += diamondValue;
+        $('#current-score').text(scoreTotal);
+        console.log(scoreTotal);
+    })   
 
         // Green
-    _crystalValueGreen.val(greenValue);
-   
-    _crystalValueGreen.click(function() {
-        scoreTotal += greenValue
-        // previousScore = Number(_scoreBoardBox.text());
-        _scoreBoardBox.text(scoreTotal);
-        // console.log(_scoreBoardBox);
+    $('#green').val(greenValue);
+    $('#green').click(function() {
+            scoreTotal += greenValue;
+            $('#current-score').text(scoreTotal);
+            console.log(scoreTotal);
+        }) 
 
-
-    })
-
-    
     // player's 'score === random number = win!
 
-    // Sasha's modular way
-
     $(".crystal").on("click", function() {
-        console.log("unique id", $(this).attr("id"))
-
-            // The two following conditionals should be checked on every click
-
-
+        // The two following conditionals should be checked on every click
         if (scoreTotal === chosenNumber) {
             console.log("You win!")
-        }
-            // payer's score > random number = lose
+        // Inform user they won and add a win to their win total
+            $('#win-loss-popup').text('You win!');
+            $('#wins-number').text(winTotal + 1);
+            console.log('wins-number')
+            }
+        // payer's score > random number = lose
         else if (scoreTotal > chosenNumber) {
             console.log("You lose!")
-        }
+            }
     })
 
 
