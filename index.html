@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Page Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" media="screen" href="./assets/css/style.css" />
 </head>
 <body>
@@ -15,13 +16,27 @@
                 Crystals Collector!
                 </h2>
             </div>
-            <div id= "section">
-            <p>
-            Lorem ipsum dolor amet brunch hoodie direct trade ipsum voluptate godard fam ut pop-up paleo squid four loko copper mug. Chambray actually tumeric excepteur, kinfolk chicharrones banjo chia sriracha nulla distillery. Mlkshk flannel before they sold out lorem la croix twee. Occaecat hot chicken hell of raclette godard aliqua neutra. Marfa bespoke raclette lomo ugh.
-
-            Esse ea artisan biodiesel labore humblebrag pok pok next level magna vice cornhole. Direct trade tote bag aliquip quinoa shoreditch. Semiotics bushwick kogi aesthetic gentrify, non flannel pour-over bespoke lomo cold-pressed yr health goth quis enamel pin. Hammock aliquip 8-bit sed quis, actually wayfarers eu tattooed qui keffiyeh. Consequat try-hard jianbing sed letterpress, cray ex exercitation crucifix cred. Crucifix butcher narwhal, ea consequat man bun voluptate unicorn banh mi anim pop-up tumblr flannel. Eiusmod letterpress lorem everyday carry mustache hexagon, cray flexitarian disrupt la croix mlkshk blue bottle brunch distillery helvetica.
-            </p>
-            </div>
+                <div id= "section">
+                <p>
+                You will be given a random number at the start of the game.
+                </p>
+                <br>
+                <p>
+                There are four crystals below. By clicking on a crystal, you add a specific amount of point to your total score.
+                </p>
+                <br>
+                <p>
+                You <b>win</b> the game by matching your total score to a random number. You <b>lose</b> the game if your total score goes abouve the random number.
+                </p>
+                <br>
+                <p>
+                The value of each crystal is hidden from you until you click on it.
+                </p>
+                <br>
+                <p>
+                Each time the game starts, the game will change the values of each crystal.
+                </p>
+                </div>
         
             <div>
                 <h3 id= "random-number"></h3>
@@ -29,15 +44,15 @@
         
             <div id= "wins-losses-box">
                 <p id= "win-loss-popup"></p>
-                <p id= "wins">Wins: <span id="wins-number">0</span></p>
-                <p id= "losses">Losses: <span id="losses-number">0</span></p>
+                <p id= "wins">Wins: <span id="wins-number"></span></p>
+                <p id= "losses">Losses: <span id="losses-number"></span></p>
             </div>
         
             <div id= "buttons">
-                <button class="crystal" id= "ruby"></button>
-                <button class="crystal" id= "diamond"></button>
-                <button class="crystal" id= "yellow"></button>
-                <button class="crystal" id= "green"></button>
+                <button type="button" class="btn btn-primary" id="ruby"></button>
+                <button type="button" class="btn btn-primary" id="diamond"></button>
+                <button type="button" class="btn btn-primary" id="yellow"></button>
+                <button type="button" class="btn btn-primary" id="green"></button>
             </div>    
 
             <div>

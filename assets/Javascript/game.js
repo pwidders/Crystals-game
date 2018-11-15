@@ -25,6 +25,8 @@ $(document).ready(function() {
 
     var winTotal = 0;
 
+    var lossTotal = 0;
+
 
     // Generate random number between 19-120 when page is loaded.
     //This is a helper function 
@@ -70,22 +72,23 @@ $(document).ready(function() {
 
     // player's 'score === random number = win!
 
-    $(".crystal").on("click", function() {
+    $(".btn btn-primary").on("click", function() {
         // The two following conditionals should be checked on every click
         if (scoreTotal === chosenNumber) {
             console.log("You win!")
         // Inform user they won and add a win to their win total
             $('#win-loss-popup').text('You win!');
             $('#wins-number').text(winTotal + 1);
-            console.log('wins-number')
             }
         // payer's score > random number = lose
         else if (scoreTotal > chosenNumber) {
             console.log("You lose!")
+        // Inform user they lost and add loss to toal
+            $('#win-loss-popup').text('You lose!');
+            $('#losses-number').text(lossTotal + 1);
             }
     })
 
-
-
     // game resets with new random number and win/loss gets tallied
+
 })
