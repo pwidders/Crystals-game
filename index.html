@@ -9,61 +9,53 @@
     <link rel="stylesheet" type="text/css" media="screen" href="./assets/css/style.css" />
 </head>
 <body>
-    <div id= "container">
-        <div id="wrapper">
-            <div id="header"> 
-                <h2> 
-                Crystals Collector!
-                </h2>
-            </div>
-                <div id= "section">
-                <p>
+    <div class="container-fluid">
+        <div class= "container col-8">
+            <h2>Crystals Collector!</h2>
+            <p>
                 You will be given a random number at the start of the game.
-                </p>
-                <br>
-                <p>
+            </p>
+            <p>
                 There are four crystals below. By clicking on a crystal, you add a specific amount of point to your total score.
-                </p>
-                <br>
-                <p>
+            </p>
+            <p>
                 You <b>win</b> the game by matching your total score to a random number. You <b>lose</b> the game if your total score goes abouve the random number.
-                </p>
-                <br>
-                <p>
+            </p>
+            <p>
                 The value of each crystal is hidden from you until you click on it.
-                </p>
-                <br>
-                <p>
+            </p>
+            <p>
                 Each time the game starts, the game will change the values of each crystal.
-                </p>
-                </div>
-        
+            </p>
+
+            
             <div>
                 <h3 id= "random-number"></h3>
             </div>
-        
+                
             <div id= "wins-losses-box">
                 <p id= "win-loss-popup"></p>
                 <p id= "wins">Wins: <span id="wins-number"></span></p>
                 <p id= "losses">Losses: <span id="losses-number"></span></p>
             </div>
-        
+                
             <div id= "buttons">
                 <button type="button" class="btn btn-primary" id="ruby"></button>
                 <button type="button" class="btn btn-primary" id="diamond"></button>
                 <button type="button" class="btn btn-primary" id="yellow"></button>
                 <button type="button" class="btn btn-primary" id="green"></button>
             </div>    
-
+            <br>
             <div>
-                <p><b>Your total score is:</b></p>
+                <h4>Your total score is:</h4>
             </div>
 
             <div id= "random-score">
                 <p id="current-score"></p>
-            </div>
-        </div>   
+            </div>   
+        </div>
     </div>
+</body>
     
 <script type= "text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script type= "text/javascript" src="./assets/Javascript/game.js"></script>   
